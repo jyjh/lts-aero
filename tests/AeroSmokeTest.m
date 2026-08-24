@@ -43,9 +43,9 @@ forces = mgr.computeForces(baselineState(25));
 required = {'Fz_front', 'Fz_rear', 'F_drag', 'dragHeight', 'dragXPosition'};
 for i = 1:numel(required)
     verifyTrue(testCase, isfield(forces, required{i}), ...
-        'computeForces must return field %s', required{i});
+        sprintf('computeForces must return field %s', required{i}));
     verifyTrue(testCase, isfinite(forces.(required{i})), ...
-        'computeForces field %s must be finite', required{i});
+        sprintf('computeForces field %s must be finite', required{i}));
 end
 verifyEqual(testCase, forces.Fz_front + forces.Fz_rear, ...
     0.5 * 1.225 * (3.0 + 1.0) * 25^2, 'AbsTol', 1e-9);
