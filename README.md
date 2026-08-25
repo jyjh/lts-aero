@@ -34,6 +34,10 @@ The runner assembles a temporary `+lts` package sandbox in `build/`
 - Components construct from the `cfg.aero` struct fields (`ClA`, `CdA`,
   `xPosition`, `zPosition`, `pitchSensitivityClA`); SI units throughout.
 - `computeForces` returns the axle-load struct the Simulator consumes
-  (`Fz_front`, `Fz_rear`, `F_drag`, `dragHeight`, `dragXPosition`) — the
-  smoke tests pin this shape.
+  (`Fz_front`, `Fz_rear`, `F_drag`, `dragHeight`, `dragXPosition`) —
+  `tests/ConformanceTest.m` pins this shape and the `cfg.aero` schema
+  (`validateConfig`).
+- Renaming any pinned cfg field, state field, or `computeForces` field
+  is a **contract change** — see "Changing the contract" on the
+  [Contracts page](https://jyjh.github.io/lts/contracts/).
 - Details: <https://jyjh.github.io/lts/repo-split/>
